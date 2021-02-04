@@ -23,7 +23,7 @@ class ChoreTest < ActiveSupport::TestCase
       end
   
       should "have a scope to order alphabetically by task name" do
-        assert_equal ["Shovel driveway","Sweep floor","Sweep floor","Sweep floor", "Washdishes","Wash dishes","Wash dishes"], Chore.by_task.map{|c| c.task.name}
+        assert_equal ["Shovel driveway","Sweep floor","Sweep floor","Sweep floor", "Wash dishes","Wash dishes","Wash dishes"], Chore.by_task.map{|c| c.task.name}
       end
   
       should "have a scope to order chronologically by due_on date and then completed" do
