@@ -10,17 +10,17 @@ class ChoreTest < ActiveSupport::TestCase
     should_not allow_value(3.14159).for(:due_on)
   
     context "Creating a set of chores" do
-      setup do
-        create_children
-        create_tasks
-        create_chores
-      end
-  
-      teardown do
-        destroy_children
-        destroy_tasks
-        destroy_chores
-      end
+        setup do
+            create_children
+            create_tasks
+            create_chores
+        end
+      
+        teardown do
+            destroy_chores
+            destroy_children
+            destroy_tasks
+        end
   
       should "have a scope to order alphabetically by task name" do
         assert_equal ["Shovel driveway","Sweep floor","Sweep floor","Sweep floor", "Wash dishes","Wash dishes","Wash dishes"], Chore.by_task.map{|c| c.task.name}
